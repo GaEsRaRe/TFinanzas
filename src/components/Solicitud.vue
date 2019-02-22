@@ -27,7 +27,11 @@
                                         <v-subheader>Precio de venta</v-subheader>
                                         </v-flex>
                                         <v-flex xs7>
-                                    <v-text-field reverse v-model="pVenta" />
+                                    <v-text-field type="number" reverse v-model="pVenta"
+                                        :rules="[
+                                                () => pVenta > 0 || 'El monto tiene que ser mayor a 0'
+                                        ]"
+                                     />
                                         </v-flex>
                                     </v-layout>
                                     
@@ -50,7 +54,10 @@
                                         <v-subheader>TEA</v-subheader>
                                         </v-flex>
                                         <v-flex xs4>
-                                    <v-text-field reverse v-model="tea" />
+                                    <v-text-field type="number" reverse v-model="tea" 
+                                            :rules="[
+                                                () => tea > 0 || 'El valor de la tea debe ser mayor al 0 %'
+                                                ]" />
                                         </v-flex>
                                         <v-flex xs1>
                                     <v-subheader>%</v-subheader>
@@ -103,7 +110,11 @@
                                         <v-subheader>Numero de cuotas a pagar</v-subheader>
                                         </v-flex>
                                         <v-flex xs4>
-                                    <v-text-field  reverse v-model="n"/>
+                                    <v-text-field type="number"  reverse v-model="n"
+                                        :rules="[
+                                                () => n > 1 || 'El numero de cuotas no puede ser menor a 1'
+                                                ]" 
+                                    />
                                         </v-flex>
                                     </v-layout>
                                     
@@ -128,6 +139,8 @@
                                                 label="Fecha"
                                                 prepend-icon="event"
                                                 @blur="date = parseDate(dateFormatted)"
+
+
                                             ></v-text-field>
                                             <v-date-picker v-model="date" no-title @input="menu1 = false" locale="es-es"></v-date-picker>
                                         </v-menu>
@@ -140,7 +153,11 @@
                                         <v-subheader> Dia de pago:</v-subheader>
                                         </v-flex>
                                         <v-flex xs4>
-                                    <v-text-field reverse v-model="diaPago" />
+                                    <v-text-field type="number" reverse v-model="diaPago"
+                                            :rules="[
+                                                () => diaPago > 0 && diaPago < 29 || 'Elija una fecha valida'
+                                                ]" 
+                                     />
                                         </v-flex>
                                     </v-layout>
                                    <v-layout row justify-end>
@@ -173,7 +190,7 @@
                                         <v-subheader>Seguro de desgravamen</v-subheader>
                                         </v-flex>
                                         <v-flex xs4>
-                                    <v-text-field reverse v-model="seguroDes"/>
+                                    <v-text-field  type="number" reverse v-model="seguroDes"/>
 
                                         </v-flex>
                                         <v-flex xs2>
@@ -186,7 +203,7 @@
                                         <v-subheader>Seguro Vehicular</v-subheader>
                                         </v-flex>
                                         <v-flex xs4>
-                                    <v-text-field reverse v-model="seguroVe" />
+                                    <v-text-field type="number" reverse v-model="seguroVe" />
 
                                         </v-flex>
                                         <v-flex xs2>
@@ -212,7 +229,7 @@
                                         <v-subheader>Importe Aseguradora</v-subheader>
                                         </v-flex>
                                         <v-flex xs4>
-                                    <v-text-field reverse v-model="importeAseg"/>
+                                    <v-text-field type="number" reverse v-model="importeAseg"/>
 
                                         </v-flex>
                                         <v-flex xs2>
@@ -224,7 +241,7 @@
                                         <v-subheader>Comision por pago de cuota</v-subheader>
                                         </v-flex>
                                         <v-flex xs4>
-                                    <v-text-field reverse v-model="p" />
+                                    <v-text-field type="number" reverse v-model="p" />
 
                                         </v-flex>
                                         <v-flex xs2>

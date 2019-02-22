@@ -132,7 +132,7 @@
                                         <v-subheader>Precio de venta</v-subheader>
                                         </v-flex>
                                         <v-flex xs7>
-                                    <v-text-field readonly reverse v-model="pVenta" />
+                                    <v-text-field  readonly reverse v-model="pVenta" />
                                         </v-flex>
                                     </v-layout>
                                     
@@ -208,7 +208,11 @@
                                         <v-subheader>Numero de cuotas a pagar</v-subheader>
                                         </v-flex>
                                         <v-flex xs4>
-                                    <v-text-field  reverse v-model="n"/>
+                                    <v-text-field type="number"  reverse v-model="n"
+                                        :rules="[
+                                                () => n > 1 || 'El numero de cuotas no puede ser menor a 1'
+                                                ]" 
+                                    />
                                         </v-flex>
                                     </v-layout>
                                     
@@ -245,7 +249,11 @@
                                         <v-subheader> Dia de pago:</v-subheader>
                                         </v-flex>
                                         <v-flex xs4>
-                                    <v-text-field reverse v-model="diaPago" />
+                                    <v-text-field type="number" reverse v-model="diaPago" 
+                                        :rules="[
+                                                () => diaPago > 0 && diaPago < 29 || 'Elija una fecha valida'
+                                                ]" 
+                                    />
                                         </v-flex>
                                     </v-layout>
                                    <v-layout row justify-end>
