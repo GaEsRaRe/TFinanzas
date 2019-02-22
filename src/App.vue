@@ -1,18 +1,17 @@
 <template>
   <div id="app">
     <v-app>
-    <HelloWorld/>
+    <router-view></router-view>
+
     </v-app>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/Solicitud.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
   }
 }
 </script>

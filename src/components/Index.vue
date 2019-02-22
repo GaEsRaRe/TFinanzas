@@ -4,8 +4,8 @@
             <v-spacer/>
             <v-spacer/>
             <v-spacer/>
-            <v-btn class="success">SIGN IN</v-btn>
-            <v-btn class="success">SIGN UP</v-btn>
+            <v-btn class="success" @click="go_to('/Login')">SIGN IN</v-btn>
+            <v-btn class="success" @click="go_to('/CreateUser')">SIGN UP</v-btn>
         </v-toolbar>
         <v-layout row>
             <h1> CARCOST LOGO </h1>
@@ -85,7 +85,11 @@
 
 <script>
 export default {
-
+    methods:{
+        go_to(address){
+            this.$router.push(address);
+        }
+    }
 }
 </script>
 

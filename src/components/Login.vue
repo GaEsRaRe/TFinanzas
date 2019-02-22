@@ -41,7 +41,9 @@ export default {
     methods:{
         login(){
             axios.post("http://54.215.238.254:3000/validateUser",{username: this.username, password: this.password}).then((s) =>{
-                console.log(s);
+                if(s.data.msg == true){
+                  this.$router.push("/Menu")
+                }
             })
         }
     }

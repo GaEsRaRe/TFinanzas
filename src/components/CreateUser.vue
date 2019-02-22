@@ -29,11 +29,20 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     data: () =>{
         return{
             username: "",
             password: ""
+        }
+    },methods:{
+        login(){
+            axios.post("http://54.215.238.254:3000/createUser",{username: this.username, password: this.password}).then((s) =>{
+                if(s.data.msg == true){
+                  this.$router.push("/")
+                }
+            })
         }
     }
 }
